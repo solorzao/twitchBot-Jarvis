@@ -5,6 +5,9 @@ import random
 import twitchio
 from twitchio.ext import commands
 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 bot = commands.Bot(
     # set up the bot
@@ -45,7 +48,7 @@ async def test(ctx):
     await ctx.send('test passed!')
 
 
-@bot.command(name='roll_dice')
+@bot.command(name='rolldice')
 async def roll(ctx, number_of_dice: int, number_of_sides: int):
     dice = [
         str(random.choice(range(1, number_of_sides + 1)))
@@ -54,7 +57,7 @@ async def roll(ctx, number_of_dice: int, number_of_sides: int):
     await ctx.send(', '.join(dice))
 
 
-@bot.command(name='roast_me')
+@bot.command(name='roastme')
 async def roast_initiated(ctx):
 
     name = ctx.author.name
